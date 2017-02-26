@@ -1,0 +1,19 @@
+﻿@model ComicBookGallery.Models.ComicBook[]
+
+<div class="row">
+    @foreach (var comicBook in Model)
+    {
+        <div class="col-md-3">
+            <h4>
+                @Html.ActionLink(comicBook.DsiplayText, "Detail", "ComicBooks",
+                    new { id = comicBook.Id }, null)
+            </h4>
+            <a href="@Url.Action("Detail", "ComicBooks",
+                    new { id = comicBook.Id })">
+                <img src="/Images/@comicBook.CoverImageFileName"
+                     alt="@comicBook.DsiplayText"
+                     class="img-responsive" />
+            </a>
+        </div>
+    }
+</div>

@@ -32,7 +32,10 @@
     {
         <div class="backbar">
             <div class="container">
-                @Html.ActionLink("Return to List", "Index", null, new { @class = "btn btn-default"})
+                @{
+                    var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+                }
+                @Html.ActionLink("Return to List", "Index", controllerName, null, new { @class = "btn btn-default"})
             </div>
         </div>
     }
